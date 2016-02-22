@@ -106,8 +106,62 @@ public class MatrixTest {
 		Matrix matrix = new Matrix(3,3);
 		int[] values = {1,2,3,3,2,1,2,1,3};
 		matrix.populate(values);
-		int determinantOfMatrix = matrix.determinant();
+		int determinantOfMatrix = matrix.findDeterminant();
 		assertEquals(determinantOfMatrix,-12);
 	}
+	@Test
+	public void determinant_of_3_by_3_matrix_of_1_to_9(){
+		Matrix matrix = new Matrix(3,3);
+		int[] values = {6,7,9,5,9,1,98,43,86};
+		matrix.populate(values);
+		int determinantOfMatrix = matrix.findDeterminant();
+		assertEquals(determinantOfMatrix,-3941);
+	};
+
+	@Test
+	public void determinant_of_2_by_2_matrix(){
+		Matrix matrix = new Matrix(2,2);
+		int[] values = {6,7,9,11};
+		matrix.populate(values);
+		int determinantOfMatrix = matrix.findDeterminant();
+		assertEquals(determinantOfMatrix,3);
+	}
+
+	@Test
+	public void determinant_of_2_by_2_null_matrix(){
+		Matrix matrix = new Matrix(2,2);
+		int[] values = {0,0,0,0};
+		matrix.populate(values);
+		int determinantOfMatrix = matrix.findDeterminant();
+		assertEquals(determinantOfMatrix,0);
+	};
+
+	@Test
+	public void determinant_of_odd_matrix(){
+		Matrix matrix = new Matrix(2,3);
+		int[] values = {3,5,20,2,43,41};
+		matrix.populate(values);
+		int determinantOfMatrix = matrix.findDeterminant();
+		assertEquals(determinantOfMatrix,0);
+	};
+
+	@Test
+	public void determinant_of_4_by_4_matrix(){
+		Matrix matrix = new Matrix(4,4);
+		int[] values = {2,56,2,6,12,53,75,81,12,45,78,13,134,86,9,0};
+		matrix.populate(values);
+		int determinantOfMatrix = matrix.findDeterminant();
+		assertEquals(determinantOfMatrix,37578488);
+	};
+
+	@Test
+	public void determinant_of_5_by_5_matrix(){
+		Matrix matrix = new Matrix(5,5);
+		int[] values = {2,56,2,6,1,12,53,75,81,0,5,12,45,78,13,34,134,86,9,0,34,134,86,19,10};
+		matrix.populate(values);
+		int determinantOfMatrix = matrix.findDeterminant();
+		assertEquals(determinantOfMatrix,-7124500);
+	}
+	
 	
 }
